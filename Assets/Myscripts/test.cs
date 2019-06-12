@@ -20,7 +20,7 @@ public class test : MonoBehaviour
         //↓最終目的である rate にアクセスするために必要な emission を取得し格納
         mEmObj = ParticleObj.emission;
         //audioSource = gameObject.GetComponent<AudioSource>();
-        sources = gameObject.GetComponents<AudioSource>();
+        sources = gameObject.GetComponents<AudioSource>();　
         m_MySliderValue = 0.5f;
     }
 
@@ -38,20 +38,20 @@ public class test : MonoBehaviour
             if (mSwitch == true)
             {
                 //↓Rate を 800 に変更 強い雨
-                mEmObj.rate = new ParticleSystem.MinMaxCurve(800);
+                mEmObj.rate = new ParticleSystem.MinMaxCurve(800);　//雨の生成量　雨の生成範囲に応じて高くしないといけないかも
                 //audioSource.clip = audioClip1;
                 //audioSource.Play();
-                sources[1].Stop();
-                sources[0].Play();
+                sources[1].Stop();　//弱い雨STOP
+                sources[0].Play();　//強い雨用のaudiosurceファイルを再生
             }
             else
             {
                 //↓Rate を 300 に変更 弱い雨
-                mEmObj.rate = new ParticleSystem.MinMaxCurve(300);
+                mEmObj.rate = new ParticleSystem.MinMaxCurve(300);　//同上
                 //audioSource.clip = audioClip2;
                 //audioSource.Play();
-                sources[0].Stop();
-                sources[1].Play();
+                sources[0].Stop();　//強い雨STOP
+                sources[1].Play();　//弱い雨用のaudiosurceファイルを再生
             }
 
             //↓ true が false に、false が true に交互に入れ替わり続ける
